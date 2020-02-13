@@ -1,0 +1,13 @@
+echo "# GolangGinJWT" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/eajardini/GolangGinJWT.git
+git push -u origin master
+
+
+
+Usando o Git
+
+1 - git config --global user.name "Evandro Jardini"
+2 - 
