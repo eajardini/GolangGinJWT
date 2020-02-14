@@ -5,9 +5,13 @@ git commit -m "first commit"
 git remote add origin https://github.com/eajardini/GolangGinJWT.git
 git push -u origin master
 
+Digitar isso e depois fazer os commits pelo Visual Code
 
+Atualizar o Vue: 
+- vue --version
+- npm install -g @vue/cli
+- Fechar e abrir o VisualCode
+- vue --version
 
-Usando o Git
-
-1 - git config --global user.name "Evandro Jardini"
-2 - 
+Criar um app Vue
+- vue create appnome
