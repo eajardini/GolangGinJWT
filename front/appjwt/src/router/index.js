@@ -16,7 +16,7 @@ const routes = [
   //   }
   // },
   {
-    path: '/',
+    path: '/inicio',
     name: 'inicio',
     component: Inicio
   },

@@ -27,7 +27,8 @@
             //    // this.$router.replace({ name: "login" });
             //    this.$router.push("/login");
             // }
-            this.authenticated = sessionStorage.getItem('autenticado')
+            // this.authenticated = sessionStorage.getItem('autenticado')
+            this.authenticated = this.$cookie.get('autenticadocook');
              console.log("[App.vue mounted] this.authenticated:" + this.authenticated)
             if(!this.authenticated) {
               this.$router.push("/login");

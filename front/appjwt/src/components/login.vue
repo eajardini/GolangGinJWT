@@ -36,21 +36,29 @@ export default {
     };
   },
   methods: {
+    liberaAcesso(token){
+          this.$cookie.set('autenticadocook', true, '1d');
+          this.$cookie.set('tokencliente', token, '1d');
+          this.$router.push("/inicio" );
+    },
+
     login() {
       if (this.input.username != "" && this.input.password != "") {
-        if (
-          this.input.username == this.$parent.mockAccount.username &&
-          this.input.password == this.$parent.mockAccount.password
-        ) {
-            console.log("[Login.vue mounted] this.authenticated:" + this.$parent.authenticated)
-          this.$parent.authenticated = true;         
-          this.$router.push("/home" );
-          sessionStorage.setItem("autenticado", true);
-          localStorage.autenticado = "sim";
-          this.$cookie.set('autenticadocook', 'Hello world!', '1d');
-        } else {
-          console.log("The username and / or password is incorrect");
-        }
+
+        const formData = new FormData();
+      
+        formData.append("username", this.input.username);
+        formData.append("password", this.input.password);
+        this.$http
+          .post("/login", formData)
+          .then(res => {
+            console.log("[Login.vue Login] Retorno Token:" + res.data.token)      
+            this.liberaAcesso(res.data.token);       
+          })
+          .catch(error => {
+            console.log("[Login.vue Login] Retorno do Erro:" + error.response.data)
+            alert("Usuário não cadastrado ou senha inválida:" + error.response.data)
+          })
       } else {
         console.log("A username and password must be present");
       }
