@@ -25,7 +25,7 @@ func Ola(c *gin.Context) {
 //Olasemclains : zz
 func Olasemclains(c *gin.Context) {
 	c.JSON(200, gin.H{
-		"text": "Olá sem Clains",
+		"mensagem": "Olá sem Clains",
 	})
 }
 

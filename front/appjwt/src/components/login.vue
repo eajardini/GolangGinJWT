@@ -39,6 +39,7 @@ export default {
     liberaAcesso(token){
           this.$cookie.set('autenticadocook', true, '1d');
           this.$cookie.set('tokencliente', token, '1d');
+          // this.$http.defaults.headers.common['Authorization'] = token;
           this.$router.push("/inicio" );
     },
 
@@ -50,7 +51,7 @@ export default {
         formData.append("username", this.input.username);
         formData.append("password", this.input.password);
         this.$http
-          .post("/login", formData)
+          .post("login", formData)
           .then(res => {
             console.log("[Login.vue Login] Retorno Token:" + res.data.token)      
             this.liberaAcesso(res.data.token);       
@@ -59,6 +60,21 @@ export default {
             console.log("[Login.vue Login] Retorno do Erro:" + error.response.data)
             alert("Usuário não cadastrado ou senha inválida:" + error.response.data)
           })
+
+
+        // this.axios
+        //   .post("/login", formData)
+        //   .then(res => {
+        //     console.log("[Login.vue Login] Retorno Token:" + res.data.token)      
+        //     this.liberaAcesso(res.data.token);       
+        //   })
+        //   .catch(error => {
+        //     console.log("[Login.vue Login] Retorno do Erro:" + error.response.data)
+        //     alert("Usuário não cadastrado ou senha inválida:" + error.response.data)
+        //   })
+
+
+
       } else {
         console.log("A username and password must be present");
       }

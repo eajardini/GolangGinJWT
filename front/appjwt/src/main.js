@@ -20,23 +20,51 @@ Vue.use({
   install(Vue) {   
 
     Vue.prototype.$http = axios.create({
-      baseURL: 'http://localhost:8000',
-      
-    })   
+      baseURL: 'http://localhost:8000/',
+      // headers: {
+      //   'Access-Control-Allow-Origin': '*',
+      //   "Authorization": "1234"
+      // },
+    })  
 
-    // Vue.prototype.$http.interceptors.request.use(config => {
-    //   // console.log(config.method)
-    //   return config
-    // }, error => Promise.reject(error))
 
-    // Vue.prototype.$http.interceptors.response.use(resp => {
-    //   // const array = []
-    //   // for (let chave in resp.data) {
-    //   //   array.push ({id: chave, ...resp.data[chave]})
-    //   // }
-    //   // resp.data = array
-    //   return resp
-    // }, error => Promise.reject(error))
+    //https://stackoverflow.com/questions/55883984/vue-axios-cors-policy-no-access-control-allow-origin
+
+
+    // axios.create({
+    //   baseURL: 'http://localhost:8000',
+    //   withCredentials: false,
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Authorization': 'Bearer ' + VueCookie.get('tokencliente'),
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Accept' : 'application/json, text/plain, */*',
+    //     'Access-Control-Allow-Methods' : 'GET, PUT, POST, DELETE, OPTIONS',
+    //     'Access-Control-Allow-Credentials' : true
+    //   }
+    // })
+    
+    // Vue.prototype.$http  =  Axios;
+    // const accessToken = VueCookie.get('tokencliente')
+
+    // console.log("Token em main.js:" + accessToken)
+    // if (accessToken) {
+    //     Vue.prototype.$http.defaults.headers.common['Authorization'] =  accessToken
+    // }
+
+    Vue.prototype.$http.interceptors.request.use(config => {
+      // console.log(config.method)
+      return config
+    }, error => Promise.reject(error))
+
+    Vue.prototype.$http.interceptors.response.use(resp => {
+      // const array = []
+      // for (let chave in resp.data) {
+      //   array.push ({id: chave, ...resp.data[chave]})
+      // }
+      // resp.data = array
+      return resp
+    }, error => Promise.reject(error))
 
   }
 })
