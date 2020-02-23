@@ -6,6 +6,11 @@
     <button v-on:click="digaOla">Diga olá</button>
     <br>
     <button v-on:click="sairDoSistema">Sair do Sistema</button>
+    <br>
+    <label for="">Valor do token:</label>
+    <br>
+    <textarea v-model="token" name="" id="" cols="100" rows="10"></textarea>
+
   </div>
 </template>
 
