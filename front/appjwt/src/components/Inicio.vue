@@ -54,7 +54,7 @@ export default {
                   const estaLogado = this.$cookie.get('autenticadocook');
 
                   if ((codigoDoErro == "401") && (estaLogado)) {
-                    this.$http.defaults.headers.common['Authorization'] = "";
+                    // this.$http.defaults.headers.common['Authorization'] = "";
                     // alert("[Inicio.vue digaOla n.21] Valor do header:" + this.$http.defaults.headers.common['Authorization'])
                     this.$http.defaults.headers.common['Authorization'] = this.setCabecalho();                    
                     this.$http
@@ -62,7 +62,7 @@ export default {
                       .then(res => {
                             console.log("[Inicio.vue digaOla n.15] Retorno Token Renovado:" + res.data.message)              
                             this.renovaAcesso(res.data.token); 
-                            this.$http.defaults.headers.common['Authorization'] = "";
+                            // this.$http.defaults.headers.common['Authorization'] = "";
                             this.$http.defaults.headers.common['Authorization'] = this.setCabecalho(); 
                             console.log("[Inicio.vue digaOla n.2] Valor requiTentativa dentro Refresh:" + this.requisicaoTentativa); 
                             
