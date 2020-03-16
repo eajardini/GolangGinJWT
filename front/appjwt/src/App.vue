@@ -22,7 +22,7 @@
             }
         },
         mounted() {
-          console.log("[App.vue mounted] this.authenticated:" + this.authenticated)
+          //console.log("[App.vue mounted] this.authenticated:" + this.authenticated)
             // if(!this.authenticated) {
             //    // this.$router.replace({ name: "login" });
             //    this.$router.push("/login");

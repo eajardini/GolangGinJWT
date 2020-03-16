@@ -86,7 +86,7 @@ func main() {
 	}))
 
 	if port == "" {
-		port = "8000"
+		port = "8111"
 	}
 
 	autenticadorMiddleware := seguranca.RetornaMiddleware()

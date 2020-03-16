@@ -1,6 +1,7 @@
 // vue.config.js
 module.exports = {
   devServer: {
-    proxy: 'http://localhost:8000',
+    port: 8010,
+    proxy: 'http://localhost:8011',
 }
 }

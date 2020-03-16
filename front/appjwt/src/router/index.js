@@ -9,12 +9,6 @@ import Inicio from '../components/Inicio.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   redirect: {
-  //     name: "/login"
-  //   }
-  // },
   {
     path: '/inicio',
     name: 'inicio',
